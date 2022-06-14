@@ -6,10 +6,11 @@ import FoodDropDown from './Components/FoodDropdown';
 import DrinkDropDown from './Components/DrinkDropdown';
 import SideDropDown from './Components/SideDropdown';
 
-//import nameinput/instructionsform/foodimages
+//import nameinput/instructionsform/foodimages/instructionslist
 import NameInput from './Components/NameInput.js';
 import InstructionForm from './Components/InstructionForm.js';
 import FoodImages from './Components/FoodImages.js';
+import InstructionsList from './Components/InstructionsList.js';
 
 function App() {
   //all states
@@ -48,14 +49,7 @@ function App() {
           foodId={foodId}
           sideId={sideId}
           drinkId={drinkId}/>
-        <ul className='instructions-list'>
-          <h3>additional notes:</h3>
-          {
-            extraInstructions.map((instruction, i) => <li key={`${instruction}-${i}`}>
-              {instruction}
-            </li>)
-          }
-        </ul>
+        <InstructionsList extraInstructions={extraInstructions}/>
       </div>
     </div>
   );
