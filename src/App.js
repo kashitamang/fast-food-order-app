@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import backgroundImg from './Images/background.jpg';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="App-header" style={{ backgroundImage: `url(${backgroundImg})` }}>
       </header>
+      <div className="info-container">
+        <h1>Best Noodle 24/7</h1>
+        <h3>⭐ 4.5 🥡  Asian Fusion</h3>
+        <h4 className="hours">open 24/7 · delivery · pickup · vegetarian options</h4>
+      </div>
+      <div className="order-container">
+        <div></div>
+      </div>
     </div>
   );
 }
