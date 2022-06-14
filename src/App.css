@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   letter-spacing: .1rem;
-  line-height: .4rem;
 }
 
 .App-header {
@@ -22,6 +21,29 @@
   align-items: flex-start;
   margin-left: 20px;
   margin-top: 10px;
+}
+
+.order-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.name-input input{
+  border: none;
+  background-color: rgb(237, 237, 237);
+  border-radius: 5px;
+  margin: 10px;
+  width: 200px;
+  height: 20px;
+  letter-spacing: .1rem;
 }
 
 .hours {
