@@ -2,10 +2,14 @@ import { useState } from 'react';
 import './App.css';
 import backgroundImg from './Images/background.jpg';
 //import dropdowns
+import FoodDropDown from './Components/FoodDropdown';
+import DrinkDropDown from './Components/DrinkDropdown';
+import SideDropDown from './Components/SideDropdown';
 
 //import nameinput/instructionsform/foodimages
 import NameInput from './Components/NameInput.js';
 import InstructionForm from './Components/InstructionForm.js';
+import FoodImages from './Components/FoodImages.js';
 
 function App() {
   //all states
@@ -13,7 +17,7 @@ function App() {
   const [drinkId, setDrinkId] = useState(1);
   const [sideId, setSideId] = useState(1);
   const [orderName, setOrderName] = useState('valued customer');
-  const [extraInstructions, setExtraInstructions] = useState(['no fortune cookie', 'extra utensils']);
+  const [extraInstructions, setExtraInstructions] = useState([]);
 
   return (
     <div className="App">
@@ -25,25 +29,34 @@ function App() {
         <h4 className="hours">open 24/7 · delivery · pickup · vegetarian options</h4>
       </div>
       <div className="order-container">
-        {/* Name Input */}
         <NameInput setOrderName={setOrderName}/>
-        {/* Food Dropdown */}
-        {/* Side Dropdown */}
-        {/* Beverage Dropdown */}
+        Choose 1 entree:
+        <FoodDropDown setFoodId={setFoodId}/>
+        Choose 1 side:
+        <SideDropDown setSideId={setSideId}/>
+        Choose 1 beverage:
+        <DrinkDropDown setDrinkId={setDrinkId}/>
         {/* Instructions Form */}
         <InstructionForm 
           extraInstructions={extraInstructions}
           setExtraInstructions={setExtraInstructions}/>
-        <h3>hey {orderName}, here is your order so far: </h3>
-        {/* Food Images (order images) */}
       </div>
-      <ul className='instructions-list'>
-        {
-          extraInstructions.map((instruction, i) => <li key={`${instruction}-${i}`}>
-            {instruction}
-          </li>)
-        }
-      </ul>
+      <div className="order-summary">
+        <h3>hey {orderName}, here is your combo meal so far: </h3>
+        {/* Food Images (order images) */}
+        <FoodImages
+          foodId={foodId}
+          sideId={sideId}
+          drinkId={drinkId}/>
+        <ul className='instructions-list'>
+          <h3>additional notes:</h3>
+          {
+            extraInstructions.map((instruction, i) => <li key={`${instruction}-${i}`}>
+              {instruction}
+            </li>)
+          }
+        </ul>
+      </div>
     </div>
   );
 }
