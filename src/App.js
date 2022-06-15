@@ -49,7 +49,8 @@ function App() {
           foodId={foodId}
           sideId={sideId}
           drinkId={drinkId}/>
-        <InstructionsList extraInstructions={extraInstructions}/>
+        <InstructionsList 
+          extraInstructions={extraInstructions}/>
       </div>
     </div>
   );
